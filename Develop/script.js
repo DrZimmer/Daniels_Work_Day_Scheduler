@@ -36,5 +36,15 @@ var timeChange = function () {
     $(this).parent() //something
   };
 
+  document.getElementById('hour-8-text').addEventListener('click', function() {
+    // get current text of p element
+    var text = $(this);
+    var textInput = $("<input>").addClass("col-10").val(text);
+    $(this).replaceWith(textInput);
+  
+    // auto focus new element
+    textInput.trigger("focus");
+  });
+
 getStorage();
 timeChange();
