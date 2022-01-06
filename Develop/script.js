@@ -1,14 +1,10 @@
 //logic for work day scheduler
-//insert current time
+//insert current date with moment.js
 $('#currentDay').html(moment().format('MMMM Do YYYY'));
 
+//setting a value equal to the current hour
 var currentTime = new Date().getHours();
 console.log(currentTime);
-
-
-var getStorage = function () {
-  localStorage.getItem("") //retrieve each item from local storage
-};
 
 //function to change the color of time block depending on past/present/future
 var timeChange = function () {
@@ -22,29 +18,49 @@ var timeChange = function () {
       $(this).addClass("future")
     }});
   };
-  
-  var enterEvent = function () {
-    //when click on middle section, able to enter text.
-  };
 
-  var saveBtn = function () {
-    $(".save").on('click', function() {
-      //do the set item here "when i was doing this homework, i used console and alert alot (edited) because i am trying to get value" -qing
+//save button saving text area to local storage
+  $(document).ready(function () {
+    $(".saveBtn").on("click", function () {
+      const hour = $(this).parent().attr("id");
+      const description = $(this).parent().children("textarea").val();
+      console.log(description);
+      //save hour and description to local storage
+      localStorage.setItem(hour, description);
     });
-    //when i click on save, save to local storage
-    localStorage.setItem("toDoText", JSON.stringify(something));
-    $(this).parent() //something
-  };
-
-  document.getElementById('hour-8-text').addEventListener('click', function() {
-    // get current text of p element
-    var text = $(this);
-    var textInput = $("<input>").addClass("col-10").val(text);
-    $(this).replaceWith(textInput);
-  
-    // auto focus new element
-    textInput.trigger("focus");
   });
 
-getStorage();
+  // var loadTasks = function() {
+  //   tasks = JSON.parse(localStorage.getItem("tasks"));
+  
+  //   // if nothing in localStorage, create a new object to track all task status arrays
+  //   if (!tasks) {
+  //     tasks = {
+  //       toDo: [],
+  //       inProgress: [],
+  //       inReview: [],
+  //       done: []
+  //     };
+  //   }
+  //   var taskP = $("<p>")
+  //   .addClass("m-1")
+  //   .text(taskText);
+  
+  //   // loop over object properties
+  //   $.each(tasks, function(list, arr) {
+  //     // then loop over sub-array
+  //     arr.forEach(function(task) {
+  //       createTask(task.text, task.date, list);
+  //     });
+  //   });
+  // };
+
+//retrieve each hours text content from local storage
+var loadStorage = function () {
+  localStorage.getItem(hour, description); 
+  $('.description')
+  .text(description);
+};
+
 timeChange();
+loadStorage();
