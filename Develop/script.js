@@ -22,45 +22,28 @@ var timeChange = function () {
 //save button saving text area to local storage
   $(document).ready(function () {
     $(".saveBtn").on("click", function () {
-      const hour = $(this).parent().attr("id");
-      const description = $(this).parent().children("textarea").val();
+      let hour = $(this).parent().attr("id");
+      let description = $(this).parent().children("textarea").val();
       console.log(description);
       //save hour and description to local storage
       localStorage.setItem(hour, description);
     });
   });
 
-  // var loadTasks = function() {
-  //   tasks = JSON.parse(localStorage.getItem("tasks"));
-  
-  //   // if nothing in localStorage, create a new object to track all task status arrays
-  //   if (!tasks) {
-  //     tasks = {
-  //       toDo: [],
-  //       inProgress: [],
-  //       inReview: [],
-  //       done: []
-  //     };
-  //   }
-  //   var taskP = $("<p>")
-  //   .addClass("m-1")
-  //   .text(taskText);
-  
-  //   // loop over object properties
-  //   $.each(tasks, function(list, arr) {
-  //     // then loop over sub-array
-  //     arr.forEach(function(task) {
-  //       createTask(task.text, task.date, list);
-  //     });
-  //   });
-  // };
-
 //retrieve each hours text content from local storage
-var loadStorage = function () {
-  localStorage.getItem(hour, description); 
-  $('.description')
-  .text(description);
+function getLocalStorage () {
+  $("#hour-8 .description").val(localStorage.getItem("hour-8"));
+  $("#hour-9 .description").val(localStorage.getItem("hour-9"));
+  $("#hour-10 .description").val(localStorage.getItem("hour-10"));
+  $("#hour-11 .description").val(localStorage.getItem("hour-11"));
+  $("#hour-12 .description").val(localStorage.getItem("hour-12"));
+  $("#hour-13 .description").val(localStorage.getItem("hour-13"));
+  $("#hour-14 .description").val(localStorage.getItem("hour-14"));
+  $("#hour-15 .description").val(localStorage.getItem("hour-15"));
+  $("#hour-16 .description").val(localStorage.getItem("hour-16"));
+  $("#hour-17 .description").val(localStorage.getItem("hour-17"));
+  // localStorage.getItem(hour, description); 
 };
 
 timeChange();
-loadStorage();
+getLocalStorage();
