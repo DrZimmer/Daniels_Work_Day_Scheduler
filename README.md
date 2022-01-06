@@ -11,8 +11,8 @@ Some code was given for the creation of this scheduler.
 - Upon clicking the adjacent save button, it will save whatever text is in the text area to local storage.
 - Upon refreshing the page, the data in the text area will persist as long as it has been saved.
 
-![Code_quiz_image](https://user-images.githubusercontent.com/91150259/147491363-2e428ba2-53ea-4790-8dc2-c37d511b4339.png)
+![workday_scheduler_image](https://user-images.githubusercontent.com/91150259/148412265-b8b3e466-8edc-4381-9b97-c098bc216e48.png)
 
-#### Link to Application :
+#### Link to Application : https://drzimmer.github.io/Daniels_Work_Day_Scheduler/
 
 Code edited by: Daniel Zimmermann
